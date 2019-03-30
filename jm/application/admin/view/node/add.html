@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+	<div class="main-content">
+	
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="col-md-6 validation-grids widget-shadow" data-example-id="basic-forms"> 
+					<div class="form-title">
+						<h4>添加权限 :</h4>
+					</div>
+					<div class="form-body">
+						<form data-toggle="validator" method="post" novalidate="true">
+							<div class="form-group">上级菜单：
+							
+								<select name="parentid" placeholder="Username" class="form-control">
+									<option value="0">作为顶级菜单</option>
+									{if $node}
+									{foreach name="node" item="vo"}
+									<option value="{$vo.id}" {if $id==$vo.id}selected{/if}>{$vo.name}</option>
+
+									{if $vo['subordiNode']}
+									{foreach name="vo.subordiNode" item="vov"}
+									<option value="{$vov.id}" {if $id==$vov.id}selected{/if}>&nbsp;&nbsp; ├─ {$vov.name}</option>
+									{/foreach}
+									{/if}
+									{/foreach}
+									{/if}
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="name" placeholder="菜单名称" required>
+							</div>
+							<div class="form-group has-feedback">
+								<input type="text" class="form-control" name="m" placeholder="模块名（Module）">
+								
+							</div>
+							<div class="form-group">
+							  <input type="text" class="form-control" name="c" placeholder="控制器（Controller）" required>
+							  
+							</div>
+							<div class="form-group">
+							  <input type="text" class="form-control" name="a" placeholder="方法名（Action）" required>
+							</div>
+							<div class="form-group">
+							  <input type="text" class="form-control" name="data" placeholder="附加参数">
+							 
+							</div>
+							<div class="form-group">
+							  <input type="text" class="form-control" name="listorder" placeholder="排序  从高往低排序" value="0">
+							 
+							</div>
+							<div class="form-group">
+								<div class="radio">
+									<label>
+									  <input type="radio" value="1" name="display" checked required>
+									  显示
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+									<input type="radio" value="0" name="display" >
+									隐藏
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</form>
+					</div>
+				</div>
+		</div>
+
+	</div>
+	<!-- Classie -->
+		<script src="__JS__/classie.js"></script>
+		<script>
+		
+		</script>
+	<!--scrolling js-->
+	<script src="__JS__/jquery.nicescroll.js"></script>
+	<script src="__JS__/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="__JS__/bootstrap.js"> </script>
+</body>
+</html>

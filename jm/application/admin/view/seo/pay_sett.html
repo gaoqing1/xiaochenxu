@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+	<div class="main-content">
+	
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="tables">
+					
+					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+						<h4>Web navigation: <a href="{:url('navigation_ins')}">添加分类</a></h4>
+						<table class="table table-hover">
+							<thead>
+							<tr>
+							  <th>ID</th>
+							  <th>标题</th>
+							  <th>支付</th>
+							  <th>状态</th>
+							  <th>操作</th>
+							</tr>
+							</thead>
+							{if $info}
+							{foreach name="info" item="vo"}
+							<tr>
+							  <th scope="row">{$vo.id}</th>
+							  <td>{$vo.title}</td>
+							  <td>{$vo.company}</td>
+							  <td>{if $vo.open==1}开启{elseif $vo.open==0}关闭{/if}</td>
+							  <td>
+							  	{if $vo.open==1}
+							  	[<a href="{:url('pay_open',array('id'=>$vo['id']))}&open=0">关闭</a>]&nbsp;&nbsp;
+							  	{elseif $vo.open==0}
+							  	[<a href="{:url('pay_open',array('id'=>$vo['id']))}&open=1">开启</a>]
+								{/if}
+							  	</td> 
+							  	</td> 
+							</tr>
+						
+							{/foreach}
+							{/if}
+						</table>
+						<ul>
+							<li>Timesdata：杜新华支付</li>
+							<li>Cloud：智能支付</li>
+							<li>Gateway：易生支付</li>
+							<li>Polymeri：聚合支付</li>
+						</ul>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 modal-grids">
+
+			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content"> 
+						<img src="" alt="" id="modal_content" style="width: 100%;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="modal-backdrop fade in"></div> -->
+	</div>
+	<!-- Classie -->
+		<script src="__JS__/classie.js"></script>
+		<script>
+		
+		</script>
+		<style>
+		.imgWudth img{width: 30px;cursor: pointer;}
+		</style>
+	<!--scrolling js-->
+	<script src="__JS__/jquery.nicescroll.js"></script>
+	<script src="__JS__/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="__JS__/bootstrap.js"> </script>
+</body>
+</html>

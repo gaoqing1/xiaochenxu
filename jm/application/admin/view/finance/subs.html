@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+	<div class="main-content">
+	
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="col-md-6 validation-grids widget-shadow" data-example-id="basic-forms"> 
+					<div class="form-title">
+						<h4>代付 :</h4>
+					</div>
+					<div class="form-body">
+						<form data-toggle="validator" method="post" novalidate="true">
+							<div class="form-group">订单号：
+							  <input type="text" class="form-control" name="orderId">
+							 
+							</div>
+							<div class="form-group">流水号：
+							  <input type="text" class="form-control" name="reqNo">
+							 
+							</div>
+							<div class="form-group">银行：
+							
+								<select name="bank" placeholder="Username" class="form-control">
+
+								<option value="102-工商银行">工商银行</option>
+								<option value="103-农业银行">农业银行</option>
+								<option value="104-中国银行">中国银行</option>
+								<option value="105-建设银行">建设银行</option>
+								<option value="301-交通银行">交通银行</option>
+								<option value="403-邮储银行">邮储银行</option>
+								<option value="302-中信银行">中信银行</option>
+								<option value="303-光大银行">光大银行</option>
+								<option value="304-华夏银行">华夏银行</option>
+								<option value="305-民生银行">民生银行</option>
+								<option value="306-广发银行">广发银行</option>
+								<option value="307-平安银行">平安银行</option>
+								<option value="308-招商银行">招商银行</option>
+								<option value="309-兴业银行">兴业银行</option>
+								<option value="310-浦发银行">浦发银行</option>
+								<option value="325-上海银行">上海银行</option>
+
+								</select>
+							</div>
+							<div class="form-group">金额： &nbsp; 单位：分，不可大于五万限额
+								<input type="text" class="form-control" name="money" placeholder="500等于5.00元" required>
+							</div>
+							<div class="form-group has-feedback">持卡人：
+								<input type="text" class="form-control" name="accountName">
+								
+							</div>
+							<div class="form-group">银行账号：
+							  <input type="text" class="form-control" name="bankAccount" required>
+							  
+							</div>
+							<div class="form-group">账户类别
+							  <select name="prop" onchange="gradeChange()" class="form-control">
+
+								<option value="0">对私</option>
+								<option value="1">对公</option>
+
+								</select>
+							</div>
+							<div class="form-group prop_1">支行名称：
+							  <input type="text" class="form-control" name="bankSubbranch" >
+							 
+							</div>
+							<div class="form-group prop_1">开户所在省：
+							  <input type="text" class="form-control" name="province" >
+							 
+							</div>
+							<div class="form-group prop_1">开户所在市：
+							  <input type="text" class="form-control" name="city" >
+							 
+							</div>
+							<div class="form-group">说明：
+							  <input type="text" class="form-control" name="source"  placeholder="可不填">
+							 
+							</div>
+							<div class="form-group">支付密码：
+							  <input type="password" class="form-control" name="password">
+							 
+							</div>
+							
+							
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</form>
+						风控系统：</br>
+						1、当天同张银行卡相同金额只能代付3次 不同金额无限制。   </br>
+						2、同张银行卡自然月代付金额不能超过100W。 </br>
+						3、单卡单日代付不能超过50W。
+					</div>
+				</div>
+		</div>
+
+	</div>
+	<!-- Classie -->
+		<script src="__JS__/classie.js"></script>
+		<script>
+			function gradeChange() {
+				prop = $("select[name='prop']").val();
+				
+				if (prop=='1') {
+					
+					$('.prop_1').show();
+				}else{
+
+					$('.prop_1').hide();
+
+				}
+			}
+		</script>
+		<style type="text/css">
+		.prop_1{display: none;}
+		</style>
+	<!--scrolling js-->
+	<script src="__JS__/jquery.nicescroll.js"></script>
+	<script src="__JS__/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="__JS__/bootstrap.js"> </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+    <script>
+         new WOW().init();
+    </script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+    <div class="main-content">
+    
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <div class="tables">
+                    
+                    <div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+                        <h4>Personnel: <a href="{:url('check_add')}">添加工作人员</a> | <a href="{:url('check_web')}">安全网址</a></h4>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>名字</th>
+                              <th>手机</th>
+                              <th>QQ</th>
+                              <th>email</th>
+                              <th>操作</th>
+                            </tr>
+                            </thead>
+                            {if $info}
+                            {foreach name="info" item="vo"}
+                            <tr>
+                              <th scope="row">{$vo['id']}</th>
+                              <td>{$vo.name}</td>
+                              <td>{$vo.phone}</td>
+                              <td>{$vo.qq}</td>
+                              <td>{$vo.email}</td>
+                              <td>
+                              {if $vo.id!=1}
+                                [<a href="javascript:;" href-link="{:url('check_del',array('id'=>$vo['id']))}" class="delLink">删除</a>]&nbsp;&nbsp;
+                               {/if}
+                                [<a href="{:url('check_edit',array('id'=>$vo['id']))}">编辑</a>]</td> 
+                            </tr>
+                            
+                            {/foreach}
+                            {/if}
+                        </table>
+                    </div>
+                {$info->render()}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Classie -->
+        <script src="__JS__/classie.js"></script>
+        <script>
+        var delLinkMsg = '是否确认删除！';
+        </script>
+    <!--scrolling js-->
+    <script src="__JS__/jquery.nicescroll.js"></script>
+    <script src="__JS__/scripts.js"></script>
+    <!--//scrolling js-->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="__JS__/bootstrap.js"> </script>
+</body>
+</html>

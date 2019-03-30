@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+	<div class="main-content">
+	
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="col-md-6 validation-grids widget-shadow" data-example-id="basic-forms"> 
+					<div class="form-title">
+						<h4>编辑分类 :</h4>
+						<input type="hidden" value="{$info.catid}" name="catid">
+					</div>
+					<div class="form-body">
+						<form data-toggle="validator" method="post" >
+							<div class="form-group">上级菜单：
+							
+								<select name="parentid" class="form-control">
+									<option value="0">作为顶级菜单</option>
+									{if $cateList}
+									{foreach name="cateList" item="vo"}
+									<option value="{$vo.catid}" {if $info.parentid==$vo.catid}selected{/if}>{$vo.catname}</option>
+
+									{/foreach}
+									{/if}
+								</select>
+							</div>
+							<div class="form-group">栏目名称：
+								<input type="text" class="form-control" name="catname" placeholder="栏目名称" required="" value="{$info.catname}">
+							</div>
+							<div class="form-group">栏目图片：
+
+								<input type="file" id="FileUpload" onchange="fileImg('FileUpload','hiddenInp','sss')" style="opacity: 0;display: none;">
+								<input type="hidden" name="image" id="hiddenInp" value="{$info.image}">
+								<img src="{if $info.image}{$info.image}{else}__IMG__/timg.jpg{/if}" id="sss" onclick="ImgUploadClick('FileUpload')" style="width: 100px; cursor: pointer;">
+							</div>
+							<div class="form-group has-feedback">栏目描述：
+								<input type="text" class="form-control" name="description"  value="{$info.description}">
+								
+							</div>
+							<div class="form-group">
+								栏目排序：
+							  <input type="text" class="form-control" name="listorder"  value="{$info.listorder}">
+							  
+							</div>
+							<div class="form-group">
+								站点类目：
+							  <input type="text" class="form-control" name="cate_web" placeholder="" value="{$info.cate_web}">
+							  <p>0为主站点 1为分站点。只对顶级菜单有效</p>
+							</div>
+							<div class="form-group">
+								<div class="radio">
+									<label>
+									  <input type="radio" value="1" name="ismenu" {if $info.ismenu}checked{/if} required>
+									  显示
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+									<input type="radio" value="0" name="ismenu" {if $info.ismenu==0}checked{/if}>
+									隐藏
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</form>
+
+						<!-- 上传大文件 -->
+						<!-- <input type="file" name="video" onchange="selfile('video','fileUrl');" >
+						<input type="hidden" name="video" id="fileUrl" > -->
+
+						<!-- 上传图片 -->
+						<!-- <input type="file" value="上传图片" name="FileUpload" id="FileUpload" onchange="fileImg('FileUpload','hiddenInp','sss')">
+						<input type="hidden" name="hiddenInp" id="hiddenInp" value="">
+						<img src="http://img.nc.com/upload/large/201803/MPRrbcAHMHpFxxK7.jpg" alt="" id="sss" onclick="ImgUploadClick('FileUpload')"> -->
+
+
+						
+					</div>
+				</div>
+		</div>
+
+	</div>
+	<!-- Classie -->
+		<script src="__JS__/classie.js"></script>
+		<script>
+
+		
+		</script>
+	<!--scrolling js-->
+	<script src="__JS__/jquery.nicescroll.js"></script>
+	<script src="__JS__/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="__JS__/bootstrap.js"> </script>
+	<script src="/static/fileupload/asyncUpload.js"> </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <title>邀请管理</title>
+
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="__CSS__/invitation_admin.css">
+    <!-- 自定义事件 -->
+    <script src="__JS__/invitation_admin.js"></script>
+    <script src="__JS__/jquery-1.11.1.min.js"></script>
+
+    <!-- Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="title">邀请管理</div>
+    <div class="invitation">
+        <!-- 奖励设置 -->
+      <!-- 奖励设置 -->
+        <form action="{:url('edit')}" method="post">
+            <div class="award">
+                <p>奖励设置</p>
+                 <!-- 开户 -->
+                <div class="award_row">
+                    <span>开户成功赠</span>
+                    <div class="award_input">
+                        <input class="input_kai_money"   oninput="if(value.length>2)value=value.slice(0,2)" name="kai1_money" type="number" placeholder="请输入" value="{$open[0]['mum']}">人
+                        <input class="input_kai_money"   oninput="if(value.length>2)value=value.slice(0,2)" name="kai2_money" type="number" placeholder="请输入" value="{$open[0]['dollar']}">元
+                    </div>
+                    <div class="award_input">
+                        <input class="input_kai_money02"   oninput="if(value.length>2)value=value.slice(0,2)" name="kai3_money" type="number" placeholder="请输入" value="{$open[1]['mum']}">人
+                        <input class="input_kai_money02"   oninput="if(value.length>2)value=value.slice(0,2)" name="kai4_money" type="number" placeholder="请输入" value="{$open[1]['dollar']}">元
+                    </div>
+                    <div class="award_input">
+                        <input class="input_kai_money03"   oninput="if(value.length>2)value=value.slice(0,2)" name="kai5_money" type="number" placeholder="请输入" value="{$open[2]['mum']}">人
+                        <input class="input_kai_money03"   oninput="if(value.length>2)value=value.slice(0,2)" name="kai6_money" type="number" placeholder="请输入" value="{$open[2]['dollar']}">元
+                    </div>
+                   
+                </div>
+                <!-- 入金 -->
+                <div class="award_row2">
+                    <span>入金&nbsp;≥</span>
+                    <div class="award_input">
+                        <input id="input_pay"  oninput="if(value.length>3)value=value.slice(0,3)" name="pay" type="number" placeholder="请输入" value="{$recharge['limit']}">$ &nbsp;&nbsp; 送
+                    </div>
+                    <div class="award_input">
+                        <input class="award_input_redio" onclick="radio_pay_int()" type="radio" name="money" value='1' {if $recharge['state']==1 } checked {/if}>
+                        <input id="input_pay_int"   oninput="if(value.length>4)value=value.slice(0,4)" name="pay_int" type="number" placeholder="请输入" value="{$recharge['integral']}">积分
+                    </div>
+                    <div class="award_input">
+                        <input class="award_input_redio" onclick="radio_pay_money()" type="radio" name="money" value='2' {if $recharge['state']==2 } checked {/if}>
+                        <input id="input_pay_money"   oninput="if(value.length>2)value=value.slice(0,2)" name="pay_money" type="number" placeholder="请输入" value="{$recharge['dollar']}">元
+                    </div>
+                </div>
+                <p>注意:入金赠送金钱更改设置回根据{$open[0]['mum']},{$open[1]['mum']},{$open[2]['mum']}分级每次叠加10元</p>
+                <input class="save" type="submit" value="保存设置">
+                <!-- <button type="submit" onclick="save(this.form)">保存设置</button> -->
+            </div>
+        </form>
+        <!-- 被邀请list -->
+        <div class="invitation_by_list">
+            <p>被邀请人列表</p>
+            <!-- list -->
+            <table>
+                <tr>
+                    <th width="300px">邀请者</th>
+                    <th width="200px">被邀请者</th>
+                    <th width="200px">注册时间</th>
+                    <th width="300px">注册奖励</th>
+                    <th width="300px">入金奖励</th>
+                    <th width="350px">开户备注</th>
+                    <th width="350px">入金备注</th>
+                    <th width="400px">操作</th>
+
+                </tr>
+                {if $user}
+                {foreach $user as $value}
+                <tr>
+                    <td>{$value.bemail}</td>
+                    <td>{$value.aemail}</td>
+                    <td>{$value.atime|date='Y-m-d',###}</td>
+                    <td>
+                        {$value.ainv}元
+                    </td>
+                    <td>{if $value.astate==0}
+                            暂无入金
+                        {elseif $value.astate==1}
+                            {$value.areward}积分
+                        {elseif $value.astate==2}
+                            {$value.areward}美金
+                        {/if}
+                    </td>
+                       <td>
+                        {if $value.arsta==2 && $value.arece==0}
+                            邀请人未领取推荐奖
+                        {elseif $value.arsta==2 && $value.arece==1}
+                            邀请人已领取推荐奖未送出
+                        {else}
+                           已送邀请人推荐金
+                        {/if}
+                        </td>
+                    <td>{if $value.aremarks==0}
+                            用户暂未入金
+                        {elseif $value.aremarks==2}
+                            入金送积分
+                        {elseif $value.aremarks==3}
+                            入金未领取
+                        {elseif $value.aremarks==4 && $value.atsatic==1}
+                            领取未赠送
+                        {else}
+                            入金已确认送金
+                        {/if}
+                    </td>
+                 
+                    <td style="font-size: 20px;">{if $value.arsta==2 && $value.arece==1}<a href="{:url('modify',array('memid'=>$value['amemid']))}" onclick="return confirm('确认用户开户奖金已送出?')">开户送</a>{elseif $value.arece==1 && $value.arsta==1}<i style="font-size: 15px;">已送出</i> {/if}-{if $value.aremarks==4 && $value.atsatic==1}<a href="{:url('update',array('memid'=>$value['amemid']))}" onclick="return confirm('确认用户入金奖金已送出?')">入金送</a>{elseif $value.atsatic==2} <i style="font-size: 15px;">已送出</i>{/if}</td>
+                    
+                </tr>
+                {/foreach}
+               {/if}
+            </table>
+        </div>
+
+        <!-- page -->
+        <div class="invitation_page">
+            <nav>
+                <ul class="pager">
+                   {$user->render()}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+</script>
+</html>

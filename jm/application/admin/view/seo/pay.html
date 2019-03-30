@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+<style>
+	textarea{width: 300px; height: 120px;resize: none; }
+</style>
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+	<div class="main-content">
+	
+		<!-- main content start-->
+		<div class="row">
+
+			<div class="form-three widget-shadow">
+				<form class="form-horizontal" method="post" action="">
+					<h3>杜新华平台：</h3>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">商户号：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[timesdata][mchid]" value="{$val['timesdata']['mchid']}">
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">appkey：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[timesdata][appkey]" value="{$val['timesdata']['appkey']}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">请求地址：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[timesdata][url]" value="{$val['timesdata']['url']}">
+						</div>
+						
+					</div>
+					<h3>杜新华(代付)：</h3>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">商户号：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[subs][mchid]" value="{$val['subs']['mchid']}">
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">私钥：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[subs][rsa_private_key]" value="{$val['subs']['rsa_private_key']}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">请求地址：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[subs][url]" value="{$val['subs']['url']}">
+						</div>
+						
+					</div>
+					<h3>易生支付平台(银行卡)：</h3>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">代理商编号（默认为空）：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[gateway][agentno]" value="{$val['gateway']['agentno']}">
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">商户号：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[gateway][merno]" value="{$val['gateway']['merno']}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">终端号：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[gateway][termno]" value="{$val['gateway']['termno']}">
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">key（秘钥）：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[gateway][key]" value="{$val['gateway']['key']}">
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">请求地址：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[gateway][ms_url]" value="{$val['gateway']['ms_url']}">
+						</div>
+						
+					</div>
+					
+					<h3>智能支付：</h3>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">商户号：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[cloud][uid]" value="{$val['cloud']['uid']}">
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">token：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[cloud][token]" value="{$val['cloud']['token']}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">请求地址：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[cloud][url]" value="{$val['cloud']['url']}">
+						</div>
+						
+					</div>
+					
+					<h3>聚合支付：</h3>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">商户号：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[polymeri][pay_memberid]" value="{$val['polymeri']['pay_memberid']}">
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">token：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[polymeri][key]" value="{$val['polymeri']['key']}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">请求地址：</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control1" name="pay[polymeri][url]" value="{$val['polymeri']['url']}">
+						</div>
+						
+					</div>
+					<input type="submit" value="修改">
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!-- Classie -->
+		<script src="__JS__/classie.js"></script>
+		<script>
+		var delLinkMsg = '是否确认删除文章！';
+		
+		</script>
+	<!--scrolling js-->
+	<script src="__JS__/jquery.nicescroll.js"></script>
+	<script src="__JS__/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="__JS__/bootstrap.js"> </script>
+</body>
+</html>

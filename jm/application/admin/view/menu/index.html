@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单管理</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="__CSS__/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__CSS__/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__CSS__/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="__CSS__/animate.min.css" rel="stylesheet">
+    <link href="__CSS__/style.min.css?v=4.1.0" rel="stylesheet">
+    <link href="__CSS__/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+</head>
+  <body class="gray-bg">
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5菜单管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-9 m-b-xs">
+                        <a class="btn btn-outline btn-primary" href="{:\\think\\Url::build('Menu/add',['pid'=>$pid ? $pid : 0])}">新增</a>
+                        <!-- <button type="button" class="btn btn-outline btn-danger ajax-post confirm" url="{:\\think\\Url::build('batchUpdate',['value'=>-1])}" target-form="ids">删除</button> -->
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" placeholder="请输入关键词" class="input-sm form-control"> <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <!-- <th class="">
+                                    <input class=" checkbox check-all" type="checkbox">
+                                </th> -->
+                                <th>ID</th>
+                                <th>名称</th>
+                                <th>URL</th>
+                                <th>上级菜单</th>
+                                <th>排序</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {notempty name="data"}
+                        {volist name="data" id="vo"}
+                            <tr>
+                                <!-- <td><input class="ids " type="checkbox" name="ids[]" value="{$vo.id}"></td> -->
+                                <td>{$vo.id}</td>
+                                <td>
+                                    <a href="{:\\think\\Url::build('index',['pid'=>$vo['id']])}">{$vo.node_name}</a>
+                                </td>
+                                <td>{$vo.module_name}/{$vo.control_name}/{$vo.action_name}</td>
+                                <td>{$father.node_name|default='无'}</td>
+                                <td><input name="sort" data-id="{$vo.id}" class="input-x text-center is_sort" value="{$vo.sort}"></td>
+                                <td>
+                                    <a title="编辑" href="{:\\think\\Url::build('edit',['id'=>$vo['id']])}">编辑</a>
+                                    <!-- <a class="confirm ajax-get" title="删除" href="{:\\think\\Url::build('setStatus',['value'=>-1,'ids'=>$vo['id']])}">删除</a> -->
+                                </td>
+                            </tr>
+                        {/volist}
+                        {else /}
+                            <td colspan="10" class="text-center"> aOh! 暂时还没有内容! </td>
+                        {/notempty}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center">
+                    {$page}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="__JS__/jquery.min.js?v=2.1.4"></script>
+    <script src="__JS__/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__JS__/content.min.js?v=1.0.0"></script>
+    <script src="__JS__/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="__JS__/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="__JS__/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="__JS__/plugins/suggest/bootstrap-suggest.min.js"></script>
+    <script src="__JS__/plugins/layer/laydate/laydate.js"></script>
+    <script src="__JS__/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="__JS__/plugins/layer/layer.min.js"></script>
+  </body>
+</html>

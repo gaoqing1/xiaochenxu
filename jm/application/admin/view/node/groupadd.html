@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+	<div class="main-content">
+	
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="col-md-6 validation-grids widget-shadow" data-example-id="basic-forms"> 
+				<div class="form-title">
+					<h4>添加角色 :</h4>
+				</div>
+				<div class="form-body">
+					<form data-toggle="validator" method="post" novalidate="true">
+					
+						<div class="form-group">
+							<input type="text" class="form-control" name="title" placeholder="角色名称" value="" required>
+						</div>
+						<div class="form-group has-feedback">
+							<input type="text" class="form-control" name="description" placeholder="角色描述信息" value="">
+							
+						</div>
+						权限：
+						<div class="scrollbar scrollbar1" tabindex="5001" style="overflow: hidden; outline: none;">
+
+								<div class="single-bottom">
+									<ul class="group">
+										{if $node}
+										{foreach name="node" item="vo"}
+										<li>
+											<input type="checkbox" name="rules[]" id="brand{$vo.id}" value="{$vo.id}">
+											<label for="brand{$vo.id}"><span></span> {$vo.name}</label>
+											<ul>
+											{if $vo.subordiNode}
+											{foreach name="vo.subordiNode" item="vov"}
+												<li>
+													<input type="checkbox" name="rules[]" id="brand{$vov.id}" value="{$vov.id}">
+													<label for="brand{$vov.id}" parent="{$vo.id}"><span></span> {$vov.name}</label>
+													<ul>
+													{if $vov.subordiNode}
+													{foreach name="vov.subordiNode" item="v"}
+														<li>
+															<input type="checkbox" name="rules[]" id="brand{$v.id}" value="{$v.id}">
+															<label for="brand{$v.id}"  parent="{$vo.id},{$vov.id}"><span></span> {$v.name}</label>
+														</li>
+													{/foreach}
+													{/if}
+													</ul>
+												</li>
+											{/foreach}
+											{/if}
+											</ul>
+										</li>
+										{/foreach}
+										{/if}
+									</ul>
+								</div>
+							</div>
+						
+						<div class="form-group">
+							<div class="radio">
+								<label>
+								  <input type="radio" name="status" value="1" checked required>
+								  启用
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+								<input type="radio" name="status" value="0" >
+								禁用
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">提交</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<style>
+	.group ul{padding-left: 30px;}
+	.single-bottom ul li {padding: 0px 0px 10px;}
+	.group label{width: 100%;} 
+	.group label:hover{    background-color: #F1F1F1;}
+	.single-bottom ul li {padding: 0px;margin-bottom: 5px;}
+	</style>
+	<!-- Classie -->
+		<script src="__JS__/classie.js"></script>
+		<script>
+
+		$('label').click(function () {
+			var forid = $(this).attr('for');
+			if ($('#'+forid).is(':checked')) {
+				$(this).removeAttr("checked").siblings('ul').find('input').prop("checked",false);
+			}else if($(this).attr('parent')){
+
+				var parentArr = $(this).attr('parent').split(',');
+				for (var i = 0; i < parentArr.length; i++) {
+					$('#brand'+parentArr[i]).prop("checked",true);
+					
+				}
+			}
+			
+
+		})
+
+		
+		</script>
+	<!--scrolling js-->
+	<script src="__JS__/jquery.nicescroll.js"></script>
+	<script src="__JS__/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="__JS__/bootstrap.js"> </script>
+</body>
+</html>

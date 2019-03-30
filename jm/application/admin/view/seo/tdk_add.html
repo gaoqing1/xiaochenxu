@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="__CSS__/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__CSS__/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="__CSS__/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<script src="__JS__/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="__CSS__/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="__JS__/wow.min.js"></script>
+    <script>
+         new WOW().init();
+    </script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="__JS__/metisMenu.min.js"></script>
+<script src="__JS__/custom.js"></script>
+<link href="__CSS__/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push" style="background-color: #F1F1F1;    padding-bottom: 35px;">
+    <div class="main-content">
+    
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="col-md-6 validation-grids widget-shadow" data-example-id="basic-forms"> 
+                    <div class="form-title">
+                        <h4>添加友情链接 :</h4>
+                    </div>
+                    <div class="form-body">
+                        <form data-toggle="validator" method="post" novalidate="true" onsubmit="return false" id="validator">
+                            <div class="form-group">KEY（禁止重复）：
+                                <input type="text" class="form-control" name="seo[key]"  required placeholder="禁止重复">
+                            </div>
+                            <div class="form-group">标题：
+                                <input type="text" class="form-control" name="seo[title]"  required >
+                            </div>
+                            <div class="form-group">介绍：
+                                <input type="text" class="form-control" name="seo[description]"  required >
+                            </div>
+                            <div class="form-group has-feedback">关键字：
+                                <input type="text" class="form-control" name="seo[keywords]" required>
+                                
+                            </div>
+                         
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+    <!-- Classie -->
+        <script src="__JS__/classie.js"></script>
+        <script>
+        $("#validator").submit(function () {
+            _url = "";
+            $.ajax({
+                type:"POST",
+                url:_url,
+                data:$('#validator').serialize(),// 你的formid
+                async: false,
+                beforeSend:function(){
+                   
+                },
+                error: function(request) {
+                    alert("网络错误!");
+                },
+                success: function(msg) {
+                    alert(msg.msg);
+                    if (msg.code) {
+                        window.location.reload();
+                    }
+                }
+            });
+        })
+        </script>
+    <!--scrolling js-->
+    <script src="__JS__/jquery.nicescroll.js"></script>
+    <script src="__JS__/scripts.js"></script>
+    <!--//scrolling js-->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="__JS__/bootstrap.js"> </script>
+    <script src="/static/fileupload/asyncUpload.js"> </script>
+
+</body>
+</html>
